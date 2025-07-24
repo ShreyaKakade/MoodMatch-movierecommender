@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Recommender</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    if (!sessionStorage.getItem('user')) {
+      window.location.href = 'login.html';
+    }
+    function logout() {
+      sessionStorage.removeItem('user');
+      window.location.href = 'login.html';
+    }
+  </script>
+
+</head>
+<body>
+  <header>
+    <div class="logo">MoodMatch</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+    </nav><button onclick="logout()" style="margin-left:auto;background:#ef4444;color:white;padding:8px;border:none;border-radius:5px;cursor:pointer;">Logout</button>
+  </header>
+
+  <main>
+    <h1>Lights, Camera, Mood Match!</h1>
+    <p>Because every mood deserves the right movie.</p>
+    <form id="movie-form">
+      <select id="genre" required>
+        <option value="">Select Genre</option>
+        <option value="sci-fi">Sci-Fi</option>
+        <option value="animation">Animation</option>
+        <option value="action">Action</option>
+        <option value="drama">Drama</option>
+        <option value="romance">Romance</option>
+        <option value="horror">Horror</option>
+        <option value="comedy">Comedy</option>
+      </select>
+      <select id="mood" required>
+        <option value="">Select Mood</option>
+        <option value="excited">Excited</option>
+        <option value="happy">Happy</option>
+        <option value="sad">Sad</option>
+        <option value="curious">Curious</option>
+        <option value="inspired">Inspired</option>
+      </select>
+      <button type="submit">Recommend</button>
+    </form>
+    <div id="results-container" class="results-container"></div>
+  </main>
+
+  <footer>&copy; 2025 MoodMatch. All rights reserved.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
